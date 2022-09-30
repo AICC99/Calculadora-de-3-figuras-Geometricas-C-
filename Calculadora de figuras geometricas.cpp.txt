@@ -1,0 +1,147 @@
+#include<iostream>
+#include<conio.h>
+
+using namespace std;
+
+///// Inicio de los objetos
+//// Objeto Rectangulo
+class Rectangulo{
+ private:
+  float base;
+  float altura;
+
+ public:
+  Rectangulo(float,float);
+  void Area();
+  void Perimetro();
+};
+
+Rectangulo::Rectangulo(float BR,float AR){
+ base=BR;
+ altura=AR;
+}
+
+void Rectangulo::Perimetro(){
+ cout<<"El perimetro del rectangulo es de "<<((2*altura)+(2*base))<<endl;
+}
+
+
+void Rectangulo::Area(){
+ cout<<"El are del rectangulo es de "<<(altura*base)<<endl;
+}
+
+///Objeto Cuadrado
+
+class Cuadrado{
+    private:
+    float lado;
+    
+    public: 
+    Cuadrado(float);
+    void Area();
+    void Perimetro();
+};
+
+Cuadrado::Cuadrado(float lado1){
+    lado=lado1;
+}
+
+void Cuadrado::Area(){
+    cout <<"El area del cuadrado es "<<lado*lado<< endl;
+}
+
+void Cuadrado::Perimetro(){
+    cout << "El perimetro del cuadrado es " <<lado*4<<endl;
+}
+
+/// Objeto Circulo
+class Circulo{
+
+ private:
+  float radio;
+  float pi[2]={3.141592,3.1416}; /// Array de PI
+
+ public:
+  Circulo(float);
+  void Perimetro();
+  void Area();
+};
+
+Circulo::Circulo(float R){
+ radio=R;
+}
+
+void Circulo::Perimetro(){
+ cout<<"El perimetro del circulo es de "<<(2*pi[0]*radio)<<endl;
+}
+
+void Circulo::Area(){
+ cout<<"El area del circulo es de "<<(pi[0]*(radio*radio))<<endl;
+}
+
+
+int main(){
+    
+    float BR;
+    float AR;
+    int o;
+    float l;
+    float R;
+    
+    cout << "Calculadora de figuras geometricas" << endl;
+    cout << "Esta calculadora calcula el Area y Perimetro" << endl;
+    cout <<"Seleccione su opcion"<< endl;
+    cout <<"1 para Rectangulo"<<endl;
+    cout <<"2 para Cuadrado"<<endl;
+    cout <<"3 para Circulo"<<endl;
+    cin >>o;
+    
+switch(o)
+{
+    case 1:{
+        cout << "Area y Perimetro del Rectangulo"<< endl;
+        cout << " " << endl;
+        cout << "Inserte la base del Rectangulo" << endl;
+        cin >> BR;
+        cout << "Inserte la altura del Rectangulo" << endl;
+        cin >> AR;
+    } 
+    break;
+    case 2:{ 
+        cout << "Area y Perimetro del Cuadrado";
+        cout << " " << endl;
+        cout << "Inserte el lado del Cuadrado" << endl;
+        cin >> l;
+    }
+    break;
+    case 3:{
+        cout << "Area y Perimetro del Circulo"<< endl;
+        cout << " " << endl;
+        cout << "Inserte el radio del Circulo" << endl;
+        cin>> R;
+    }
+    break;
+    default: cout << "Opción incorrecta";
+}
+
+ if (o==1){
+    Rectangulo R1(BR,AR);
+R1.Perimetro();
+R1.Area();
+ }
+ else if (o==2){
+Cuadrado c1(l);
+c1.Area();
+c1.Perimetro();
+ }
+ else if(o==3){
+ Circulo C1(R);
+ C1.Perimetro();
+ C1.Area();
+ }
+ else{
+     cout <<"No hay resultados" << endl;
+ }
+
+ return 0;
+}
